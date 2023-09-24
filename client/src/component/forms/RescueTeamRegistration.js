@@ -131,7 +131,7 @@ const RescueTeamRegistration = () => {
             <div className="mb-10 mt-10 justify-center text-center">
               <button
                 type="submit"
-                className= "bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
+                className= "mb-10 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
               >
                 Register
               </button>

@@ -2,8 +2,18 @@ const express = require('express');
 const router = express.Router();
 const HospitalData = require('../db/model/HospitalData');
 
-router.get('/',(req,res)=>{
-    res.send('hospital data recieved');
+router.get('/',async (req,res)=>{
+
+  try{
+      const data = await HospitalData.find();
+      res.status(200).json(data);
+  }catch(error){
+    res.status(500).json(error.message);
+
+  };
+
+
+    
 })
 
 router.post('/', async (req, res) => {

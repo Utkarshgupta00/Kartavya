@@ -10,7 +10,7 @@ router.use(cors());
 
 // Define a POST endpoint for sending emails
 router.post('/send-emails', (req, res) => {
-  const { emailAddresses, emailContent } = req.body;
+  const { emailAddresses, emailContent } = req.body; 
   console.log(emailAddresses);
   console.log(emailContent);
   // Configure your email transport

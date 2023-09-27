@@ -5,7 +5,7 @@ function EmailList() {
   const [emails, setEmails] = useState([]);
   const [filteredEmails, setFilteredEmails] = useState([]);
   const [emailContent, setEmailContent] = useState('');
-  const [sending, setSending] = useState(false);
+  const [sending, setSending] = useState(false); 
 
   useEffect(() => {
     // Fetch data from your backend API

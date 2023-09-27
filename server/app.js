@@ -14,7 +14,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use('/hospital-data',HospitalRoutes);
 app.use('/rescue-team-data',RescueTeamRoutes);
-
 app.listen(port,()=>{
     console.log(`server connected at port : ${port}`);
 })

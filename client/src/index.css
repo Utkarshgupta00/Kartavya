@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* In your Tailwind CSS or a separate CSS file */
+/* In your Tailwind CSS or a separate CSS file */
+/* In your Tailwind CSS or a separate CSS file */
+/* In your Tailwind CSS or a separate CSS file */
+@keyframes running-link {
+    0% {
+      transform: translateX(-100%); /* Start from the left side */
+    }
+    100% {
+      transform: translateX(100%); /* End at the right side */
+    }
+  }
+  
+  /* Add an animation class to apply the animation */
+  .animate-running-link {
+    animation: running-link 3s linear infinite; /* Run the animation infinitely */
+  }
+  
+  

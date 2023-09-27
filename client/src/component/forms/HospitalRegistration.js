@@ -58,7 +58,7 @@ const HospitalRegistration = () => {
   return (
     <div className='lg:grid lg:grid-cols-2 w-[100%]'>
 
-        <div className='lg:mt-10 w-[100%] md:invisible lg:order-last'>
+        <div className='lg:mt-10 w-[100%]  lg:order-last'>
           
           <img src="image/hospital.png" className='w-[80%] mx-[10%] mt-10  lg:mt-20' alt="" />
         </div> 
@@ -131,7 +131,7 @@ const HospitalRegistration = () => {
             <div className="mb-10 mt-10 justify-center text-center">
               <button
                 type="submit"
-                className= "bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
+                className= "mb-10 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
               >
                 Submit Data
               </button>

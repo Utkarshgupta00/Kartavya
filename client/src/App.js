@@ -7,10 +7,13 @@ import AppBar from './component/AppBar'
 import GiveData from './component/FilterData';
 import GetEmail from './component/GetEmail';
 import FirstAid from './component/FirstAid'
+import DownBar from './component/DownBar'
+
 const App = () => {
-  return (
+  return ( 
     <>
-        <AppBar/>
+    <div className='bg-white'>        
+      <AppBar/>
         <Routes>
           <Route exact path="/" element={<Home/>}></Route>
           <Route path="/rescue-team-data" element={<RescueTeamRegistration/>}></Route>
@@ -19,6 +22,10 @@ const App = () => {
           <Route path='/get-mail' element={<GetEmail/>}></Route>
           <Route path='/disaster-guide' element={<FirstAid/>}></Route>
         </Routes>
+        <DownBar/>
+
+    </div>
+
 
 
 

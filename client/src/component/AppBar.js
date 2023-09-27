@@ -13,7 +13,7 @@ const AppBar = (props) => {
                 KARTAVYA
                 </NavLink>
 
-                <button onClick={() => loginWithRedirect()} className="bg-orange-500 px-8  hover:bg-orange-400 text-white font-bold rounded-[50px] p-2 text-center ">Login</button>
+                <button onClick={() => loginWithRedirect()} className="bg-blue-500 px-8  hover:bg-blue-500 text-white font-bold rounded-[50px] p-2 text-center ">Login</button>
 
             </div>
         </>

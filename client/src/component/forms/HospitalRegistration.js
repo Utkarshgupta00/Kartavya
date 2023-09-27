@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useEffect} from "react";
+import { useState } from "react";
 
 const HospitalRegistration = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +21,36 @@ const HospitalRegistration = () => {
     });
   };
 
+
+  const [userLocation, setUserLocation] = useState('');
+
+  // Function to fetch the user's location
+  const fetchUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        // You can use latitude and longitude to get the user's location
+        const locationString = `Latitude: ${latitude}, Longitude: ${longitude}`;
+        setUserLocation(locationString);
+        
+        // Automatically fill the location input field
+        setFormData({
+          ...formData,
+          location: locationString,
+        });
+      }, (error) => {
+        console.error('Error getting user location:', error);
+        setUserLocation('Location not available');
+      });
+    } else {
+      setUserLocation('Geolocation not supported by your browser');
+    }
+  };
+
+  // Fetch the user's location when the component mounts
+  useEffect(() => {
+    fetchUserLocation();
+  }, []);
 
 
 
@@ -123,12 +154,13 @@ const HospitalRegistration = () => {
                 onChange={handleChange}
                 className="w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-500"
                 required
+                disabled
               />
             </div>
 
 
 
-            <div className="mb-10 mt-10 justify-center text-center">
+            <div className=" mt-10 justify-center text-center">
               <button
                 type="submit"
                 className= "mb-10 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"

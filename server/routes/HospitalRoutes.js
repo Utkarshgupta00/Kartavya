@@ -16,6 +16,18 @@ router.get('/',async (req,res)=>{
     
 })
 
+
+router.get('/count', async (req, res) => {
+  try {
+  
+    const hospitalCount = await HospitalData.count();
+    console.log("hospital Count : " +  hospitalCount);
+    res.status(200).json({ count: hospitalCount });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 router.post('/', async (req, res) => {
     try {
       console.log('frontend connected');

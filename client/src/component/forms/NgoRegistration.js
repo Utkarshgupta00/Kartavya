@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const RescueTeamRegistration = () => {
+const NgoRegistration = () => {
   const [formData, setFormData] = useState({
 
     name: '',
@@ -28,7 +28,7 @@ const RescueTeamRegistration = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3001/rescue-team-data', {
+      const response = await fetch('http://localhost:3001/ngo-registration', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,15 +60,15 @@ const RescueTeamRegistration = () => {
 
         <div className='lg:mt-10 w-[100%]  lg:order-last'>
           
-          <img src="image/rescueTeam.png" className='w-[80%] mx-[10%] mt-10  lg:mt-20' alt="" />
+          <img src="image/ngo-registration.webp" className=' mt-10  lg:mt-20' alt="" />
         </div> 
 
         <div className="max-w-md mx-auto lg:mt-20 mt-10 md:w-[90%] w-[90%] ">
-        <h2 className='font-bold text-3xl text-center lg:mt-10 mb-20 mt-5  '><span className='text-orange-500 animate-pulse text-5xl'>Our Hero's  </span> Registration</h2>
+        {/* <h2 className='font-bold text-3xl text-center lg:mt-10 mb-20 mt-5  '><span className='text-orange-500 animate-pulse text-5xl'>NGO </span> Registration</h2> */}
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label htmlFor="name" className="block text-sm font-medium text-gray-600">
-                Rescue Team Name
+                NGO Name
               </label>
               <input
                 type="text"
@@ -113,7 +113,7 @@ const RescueTeamRegistration = () => {
 
             <div className="mb-4">
               <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-600">
-                Enter Exact Location
+                Enter NGO Location
               </label>
               <input
                 type="text"
@@ -133,7 +133,7 @@ const RescueTeamRegistration = () => {
                 type="submit"
                 className= " bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
               >
-                Register
+                Submit Data
               </button>
             </div>
           </form>
@@ -144,4 +144,4 @@ const RescueTeamRegistration = () => {
   );
 };
 
-export default RescueTeamRegistration;
+export default NgoRegistration;

@@ -4,6 +4,8 @@ const cors = require('cors');
 
 const HospitalRoutes = require('./routes/HospitalRoutes');
 const RescueTeamRoutes = require('./routes/RescueTeamRoutes');
+const NgoRoutes = require('./routes/NgoRoutes')
+const AlertRoutes = require('./routes/AlertRoute')
 
 
 const port = process.env.PORT || 3001;
@@ -18,6 +20,8 @@ app.use(express.json());
 
 app.use('/hospital-data',HospitalRoutes);
 app.use('/rescue-team-data',RescueTeamRoutes);
+app.use('/ngo-registration',NgoRoutes)
+app.use('/recent-alerts',AlertRoutes)
 
 app.listen(port,()=>{
     console.log(`server connected at port : ${port}`);

@@ -5,11 +5,12 @@ const HospitalCard = () => {
   const [hospitalData, setHospitalData] = useState([]);
 
   useEffect(() => {
-    // Make a GET request to your backend API
-    fetch('http://localhost:3001/hospital-data') // Replace with the actual API endpoint
+    
+    fetch('http://localhost:3001/hospital-data') 
       .then((response) => response.json())
       .then((data) => setHospitalData(data))
       .catch((error) => console.error('Error fetching data:', error));
+     
   }, []);
 
   return (

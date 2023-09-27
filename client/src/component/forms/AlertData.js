@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 
-const RescueTeamRegistration = () => {
+const AlertData = () => {
   const [formData, setFormData] = useState({
 
     name: '',
     email: '',
     phoneNumber: '',
     location : '',
+    requirement : '',
 
   });
 
@@ -28,7 +29,7 @@ const RescueTeamRegistration = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3001/rescue-team-data', {
+      const response = await fetch('http://localhost:3001/recent-alerts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,15 +44,13 @@ const RescueTeamRegistration = () => {
         // You can also reset the form or redirect the user to a success page here
       } else {
         console.error('Form submission failed:', response);
-        // Handle other possible response codes (e.g., server error)
-        // You can display an error message to the user or take appropriate action
+
       }
     } catch (error) {
       console.error('An error occurred during form submission:', error);
-      // Handle any network errors or exceptions
-      // You can display an error message to the user or take appropriate action
+      
     }
-    // Handle form submission (e.g., send data to server)
+   
     console.log(formData);
   };
 
@@ -60,11 +59,11 @@ const RescueTeamRegistration = () => {
 
         <div className='lg:mt-10 w-[100%]  lg:order-last'>
           
-          <img src="image/rescueTeam.png" className='w-[80%] mx-[10%] mt-10  lg:mt-20' alt="" />
+          <img src="image/alertpage.jpg" className=' lg:mt-20' alt="" />
         </div> 
 
         <div className="max-w-md mx-auto lg:mt-20 mt-10 md:w-[90%] w-[90%] ">
-        <h2 className='font-bold text-3xl text-center lg:mt-10 mb-20 mt-5  '><span className='text-orange-500 animate-pulse text-5xl'>Our Hero's  </span> Registration</h2>
+        <h2 className='font-bold text-3xl text-center lg:mt-10 mb-20 mt-5  '><span className='text-red-600 font-extrabold font-serif animate-pulse text-5xl'>Alert </span> Fill Now To Update</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label htmlFor="name" className="block text-sm font-medium text-gray-600">
@@ -126,6 +125,19 @@ const RescueTeamRegistration = () => {
               />
             </div>
 
+            <label htmlFor="requirement" className="block text-sm font-medium text-gray-600">
+                Enter Requirements
+              </label>
+              <input
+                type="text"
+                id="requirement"
+                name="requirement"
+                value={formData.requirement}
+                onChange={handleChange}
+                className="w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-500"
+                
+              />
+           
 
 
             <div className="mb-10 mt-10 justify-center text-center">
@@ -133,7 +145,7 @@ const RescueTeamRegistration = () => {
                 type="submit"
                 className= " bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
               >
-                Register
+                Submit Data
               </button>
             </div>
           </form>
@@ -144,4 +156,4 @@ const RescueTeamRegistration = () => {
   );
 };
 
-export default RescueTeamRegistration;
+export default AlertData;

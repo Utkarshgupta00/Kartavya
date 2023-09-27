@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
     try {
       console.log('frontend connected');
       
-      const newData = await RescueTeamData({
+      const newData = await RescueTeamData({ 
 
         RescueTeamName: req.body.name,
         RescueTeamEmail: req.body.email,

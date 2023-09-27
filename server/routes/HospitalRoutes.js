@@ -6,8 +6,8 @@ router.get('/',(req,res)=>{
     res.send('hospital data recieved');
 })
 
-router.post('/', async (req, res) => {
-    try {
+router.post('/', async (req, res) => { 
+    try { 
       console.log('frontend connected');
       
       const newData = await HospitalData({

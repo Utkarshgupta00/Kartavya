@@ -12,6 +12,9 @@ import Register from './component/Register/Register';
 import Help from './component/component1/Help'
 import RescueTeams from './component/component1/RescueTeams'
 import BlogList from './component/component1/BlogData/BlogList'
+import HospitalNearestPlace from './component/HospitalNearestPlace'
+import NearestPlaces from './component/NearestPlaces'
+
 
 const App = () => {
   return (
@@ -29,6 +32,9 @@ const App = () => {
           <Route path="/help" element={<Help/>}></Route>
           <Route path="/rescue-team-data" element={<RescueTeams/>}></Route>
           <Route path="/blog-post" element={<BlogList/>}></Route>
+          <Route path="/hospital-cards" element={<HospitalNearestPlace/>}></Route>
+          <Route path="/rescue-cards" element={<NearestPlaces/>}></Route>
+
           
 
 

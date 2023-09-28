@@ -6,7 +6,9 @@ const HospitalRoutes = require('./routes/HospitalRoutes');
 const RescueTeamRoutes = require('./routes/RescueTeamRoutes');
 const NgoRoutes = require('./routes/NgoRoutes')
 const AlertRoutes = require('./routes/AlertRoute')
-
+const locationRouter = require('./routes/locationRoutes')
+const hospitalnearestplace  = require('./routes/HospitalNearestPlaceRoutes')
+const rescuenearestplace = require('./routes/NearestPlaceRoutes');
 
 const port = process.env.PORT || 3001;
 
@@ -22,6 +24,9 @@ app.use('/hospital-data',HospitalRoutes);
 app.use('/rescue-team-data',RescueTeamRoutes);
 app.use('/ngo-registration',NgoRoutes)
 app.use('/recent-alerts',AlertRoutes)
+app.use('/getLocation',locationRouter)
+app.use('/findNearestHospitalPlace',hospitalnearestplace)
+app.use('/findNearestPlace',rescuenearestplace)
 
 app.listen(port,()=>{
     console.log(`server connected at port : ${port}`);

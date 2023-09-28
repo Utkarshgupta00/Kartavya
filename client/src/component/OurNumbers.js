@@ -26,19 +26,19 @@ const OurNumbers = (props) => {
     
     
     <>
-        <h1 className='my-5 ml-2 text-2xl font-bold'>Registered<span className=' ml-2 text-red-500 text-2xl animate-pulse'>LIVE :</span></h1>
-
-        <div className='grid grid-cols-3 w-[100%] gap-2 '>
+        <h1 className='my-10 ml-2 text-3xl font-bold'>Registered<span className=' ml-2 text-red-500 text-3xl animate-pulse'>LIVE :</span></h1>
+<div className='px-10'>
+          <div className='grid md:grid-cols-3 grid-cols-1 w-[100%] gap-2 '>
 
             {
                 numbers_registered.map((value,index)=>((
                     <div 
-                    className={`text-center p-10 shadow-md ${value.color} ${value.textcolor}`}
+                    className={`text-center p-10 mb-2 shadow-md ${value.color} ${value.textcolor}`}
                     key={index}
                     
                     >
-                        <h1 className='font-bold text-[20px] lg:text-[30px]'>{value.numbers}</h1>
-                        <p>{value.name}</p>
+                        <h1 className='font-bold text-[40px] lg:text-[30px]'>{value.numbers}</h1>
+                        <p className='text-[25px] font-bold'>{value.name}</p>
                         
                     </div>
                 
@@ -46,7 +46,9 @@ const OurNumbers = (props) => {
             }
 
 
-        </div>
+        </div>  
+</div>
+
     </>
   )
 }

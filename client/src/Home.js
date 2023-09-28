@@ -6,6 +6,8 @@ import { NavLink } from 'react-router-dom'
 import Contact from './component/Contact/Contact'
 import Register from './component/Register/Register'
 import RecentSituation from './Emergency/RecentSituation'
+import Swipe from './component/Swipe'
+
 
 
 
@@ -23,6 +25,7 @@ const Home = () => {
 
     return () => clearInterval(interval);
   }, []);
+
 
   useEffect(() => {
     
@@ -112,8 +115,11 @@ useEffect(() => {
     </div>
 
 
-    <div className='h-[300px]'>
-
+    <div className='h-[480px]'>
+    <Swiper
+              link1 = "image/ban2.png"
+              link2 = "image/banner2.webp"
+            /> 
     </div>
 
 

@@ -13,7 +13,7 @@ const DownBar = () => {
                  <i class=" text-white zmdi zmdi-hospital text-2xl  hover:text-blue-500 hover:animate-pulse"></i>
                  <p className='text-white text-[10px]'>HOSPITAL</p>
             </NavLink>
-            <NavLink to="/hospital-registration">
+            <NavLink to="/create-registration">
                  <i class=" text-white zmdi zmdi-account-add text-2xl  hover:text-blue-500 hover:animate-bounce"></i>
                  <p className='text-white text-[10px]'>Create</p>
             </NavLink>
@@ -21,7 +21,7 @@ const DownBar = () => {
                  <i class=" text-white zmdi zmdi-fire text-2xl  hover:text-orange-500 hover:animate-pulse"></i>
                  <p className='text-white text-[10px]'>RESCUE</p>
             </NavLink>
-            <NavLink to="/">
+            <NavLink to="/help">
                  <i class=" text-white zmdi zmdi-pin-help text-2xl  hover:text-red-500 hover:animate-bounce"></i>
                  <p className='text-white text-[10px]'>HELP</p>
             </NavLink>

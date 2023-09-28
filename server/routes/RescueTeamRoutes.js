@@ -2,10 +2,19 @@ const express = require('express');
 const router = express.Router();
 const RescueTeamData = require('../db/model/RescueTeamData');
 
-router.get('/',(req,res)=>{
-    res.send('rescue team data displayed');
-})
+router.get('/',async (req,res)=>{
 
+  try{
+      const data = await RescueTeamData.find();
+      res.status(200).json(data);
+  }catch(error){
+    res.status(500).json(error.message);
+
+  };
+
+
+    
+})
 
 router.get('/count', async (req, res) => {
   try {

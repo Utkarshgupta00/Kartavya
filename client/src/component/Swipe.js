@@ -15,8 +15,9 @@ export default function Swipe(props) {
 
         {
           arr.map((value,index)=>(
+            value?
             
-              <SwiperSlide><img src={value} alt="" /></SwiperSlide>
+              <SwiperSlide><img src={value} alt="" /></SwiperSlide> : ""
           ))
         }
 

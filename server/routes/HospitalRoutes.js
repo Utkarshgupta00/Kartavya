@@ -22,7 +22,6 @@ router.get('/count', async (req, res) => {
   }
 });
 
-
 router.post("/", async (req, res) => {
   try {
     console.log("frontend connected");

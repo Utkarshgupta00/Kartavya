@@ -94,8 +94,8 @@ const DisasterGuide = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-400 to-purple-500 flex flex-col items-center justify-center">
-    <div className="bg-white mt-4 p-8 rounded-lg shadow-lg w-full sm:w-5/6 md:w-4/6 lg:w-3/6 xl:w-2/6">
+    <div className=" ">
+    <div className="bg-white mt-4 p-8 rounded-lg  w-full  md:w-4/6 lg:w-3/6 xl:w-2/6">
       <h2 className="text-3xl font-semibold text-center text-gray-800 mb-4">
         Disaster Preparedness and Response Guide
       </h2>

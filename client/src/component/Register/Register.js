@@ -6,6 +6,7 @@ const Register = () => {
   const [rescueEmails, setRescueEmails] = useState([]);
   const { user, isAuthenticated } = useAuth0();
 
+
   useEffect(() => {
     // Fetch rescue team emails from your backend API
     fetch('http://localhost:3001/rescue-team-data/rescue-team-emails')
@@ -46,11 +47,11 @@ const Register = () => {
       <div>
         {isUserInRescueEmails ? (
             
-          <div className='text-center font-bold font-serif py-5 bg-red-500 mx-10 rounded-lg mt-5'>
-            <h1>You Can Add Alerts Only If </h1>
-            <NavLink to="/alert-form-01023" className="text-2xl w-[90%] rounded-lg ">
-                Add Alert
-            </NavLink>
+          <div className='text-center h-[50px] w-[50px] animate-bounce fixed bottom-[80px] right-5 font-bold font-serif p-1 bg-black rounded-[50%] mt-5'>
+            
+            <NavLink to="/alert-form" className=" text-3xl  ">
+            <i class="zmdi zmdi-alert-triangle text-yellow-500"></i>
+            </NavLink> 
           </div>
         ) : (
           ""

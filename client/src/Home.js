@@ -127,10 +127,7 @@ useEffect(() => {
 
 
     <div className='h-[480px]'>
-    <Swiper
-              link1 = "image/ban2.png"
-              link2 = "image/banner2.webp"
-            /> 
+    <Swiper/> 
     </div>
 
 

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@io-orkes/conductor-javascript": "^1.2.3",
     "swiper": "^10.3.0"
   }
 }

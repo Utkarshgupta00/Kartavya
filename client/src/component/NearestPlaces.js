@@ -35,23 +35,28 @@ function NearestPlaces() {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen p-4">
-
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
+    <div className=" min-h-screen p-4">
+      <h1 className="text-3xl font-bold mb-8">
+        <span className="text-orange-500 font-bold text-4xl animate-pulse font-serif ">Rescue Teams</span>
+        
+        <h1> NEAR ME</h1>
+      </h1>
+      <div className="h-[300px]"><img src="image/rescueTeam.png" alt="" /></div>
+      <div className="grid grid-cols-1 sm:grid-cols-1 w-[100%] md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
         {nearestPlaces && nearestPlaces.length > 0 ? (
           nearestPlaces.map((place) => (
             <div
               key={place._id}
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-2"
+              className="bg-white rounded-lg overflow w-[100%]  shadow-md hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-2"
             >
-              <div className="px-6 py-4">
+              <div className="px-3 py-4 bg-blue-50">
                 <p className="text-xl font-bold mb-2">
                   Name: {place.RescueTeamName}
                 </p>
                 <p className="text-gray-700 text-base mb-2">
                   Email Id: {place.RescueTeamEmail}
                 </p>
-                <p className="text-gray-700 text-base mb-2">
+                <p className="text-gray-700 text-base mb-2ftgtrgtrgftrgvtvvt">
                   Phone Number: {place.RescueTeamphoneNumber}
                 </p>
                 <p className="text-gray-700 text-base mb-2">

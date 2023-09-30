@@ -17,6 +17,13 @@ const Home = () => {
   const [hospitalCount,setHospitalCount] = useState(0);
   const [rescueTeamCount,setRescueTeamCount] = useState(0);
   const [ngoTeamCount,setNgoTeamCount] = useState(0);
+  const [rescueEmails, setRescueEmails] = useState([]);
+
+
+
+  
+// Adding rescueEmails as a dependency
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -42,6 +49,9 @@ useEffect(() => {
   .then((data) => setRescueTeamCount(data.count))
   .catch((error) => console.error('Error fetching rescue team count:', error));
 }, []);
+
+
+
 
 useEffect(() => {
     

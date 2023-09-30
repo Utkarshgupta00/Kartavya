@@ -22,10 +22,7 @@ const AlertData = () => {
   };
 
 
-
-
-
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
@@ -36,23 +33,73 @@ const AlertData = () => {
         },
         body: JSON.stringify(formData),
       });
-  
+
       if (response.status === 201) {
         const data = await response.json();
         console.log('Form data submitted successfully:', data);
-        e.clear();
         // You can also reset the form or redirect the user to a success page here
       } else {
         console.error('Form submission failed:', response);
-
       }
     } catch (error) {
       console.error('An error occurred during form submission:', error);
-      
     }
-   
-    console.log(formData);
+  
+    try {
+      const response1 = await fetch('http://localhost:3001/hospital-data/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          toEmails: ['recipient1@example.com', 'recipient2@example.com'], // Replace with your recipient emails
+          subject: 'Alert Form Submission',
+          text: `Name: ${formData.name}\nEmail: ${formData.email}\nPhone Number: ${formData.phoneNumber}\nLocation: ${formData.location}\nRequirements: ${formData.requirement}`,
+        }),
+      });
+  
+      if (response1.status === 200) {
+        const data1 = await response1.json();
+        console.log('Email sent successfully:', data1);
+        // You can also reset the form or redirect the user to a success page here
+      } else {
+        console.error('Email sending failed:', response1);
+      }
+  
+      const response2 = await fetch('http://localhost:3001/rescue-team-data/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          toEmails: ['recipient1@example.com', 'recipient2@example.com'], // Replace with your recipient emails
+          subject: 'Alert Form Submission',
+          text: `Name: ${formData.name}\nEmail: ${formData.email}\nPhone Number: ${formData.phoneNumber}\nLocation: ${formData.location}\nRequirements: ${formData.requirement}`,
+        }),
+      });
+  
+      if (response2.status === 200) {
+        const data2 = await response2.json();
+        console.log('Email sent successfully:', data2);
+        // You can also reset the form or redirect the user to a success page here
+      } else {
+        console.error('Email sending failed:', response2);
+      }
+    } catch (error) {
+      console.error('An error occurred while sending the email:', error);
+    }
+
+    
+
   };
+  
+
+
+
+  
+
+
+  
 
   return (
     <div className='lg:grid lg:grid-cols-2 w-[100%]'>

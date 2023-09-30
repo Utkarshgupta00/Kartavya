@@ -14,6 +14,7 @@ import RescueTeams from './component/component1/RescueTeams'
 import BlogList from './component/component1/BlogData/BlogList'
 import HospitalNearestPlace from './component/HospitalNearestPlace'
 import NearestPlaces from './component/NearestPlaces'
+import MainRegistrationPage from './component/Register/MainRegistrationPage'
 
 
 const App = () => {
@@ -28,7 +29,7 @@ const App = () => {
           <Route path="/ngo-registration" element={<NgoRegistration/>}></Route>
           <Route path="/recent-alerts" element={<RecentSituation/>}></Route>
           <Route path="/alert-form" element={<AlertData/>}></Route>
-          <Route path="/create-registration" element={<Register/>}></Route>
+          <Route path="/create-registration" element={<MainRegistrationPage/>}></Route>
           <Route path="/help" element={<Help/>}></Route>
           <Route path="/rescue-team-data" element={<RescueTeams/>}></Route>
           <Route path="/blog-post" element={<BlogList/>}></Route>

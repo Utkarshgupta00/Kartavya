@@ -10,13 +10,14 @@ const LocationFilter = () => {
   const [locationInput, setLocationInput] = useState('');
 
   useEffect(() => {
-    // Fetch data from your backend API and populate the data state
-    // You should replace this with an actual API call to your backend
+
     fetch('http://localhost:3001/rescue-team-data')
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error(error));
   }, []);
+
+  
 
   useEffect(() => {
     // Apply the location filter when the filter state changes and filter is not empty

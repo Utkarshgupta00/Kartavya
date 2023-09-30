@@ -24,14 +24,9 @@ router.post("/", async (req, res) => {
 
     // Extract the city from the response
     const city = data.address.county;
-    console.log(city);
-    console.log(data.address.amenity);
-    const address =
-      data.address.amenity !== undefined
-        ? data.address.amenity
-        : "" + " " + data.address.state_district + " ";
-    data.address.state + " ";
-    data.address.postcode;
+    // console.log(city);
+    // console.log(data.address.amenity);
+    const address = data.display_name;
     console.log(address);
     res.json({ city, address });
   } catch (error) {

@@ -1,35 +1,65 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Register = () => {
+  const [rescueEmails, setRescueEmails] = useState([]);
+  const { user, isAuthenticated } = useAuth0();
+
+  useEffect(() => {
+    // Fetch rescue team emails from your backend API
+    fetch('http://localhost:3001/rescue-team-data/rescue-team-emails')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setRescueEmails(data);
+        console.log('Rescue Emails:', data);
+      })
+      .catch((error) => {
+        console.error('Error fetching rescue team emails:', error);
+      });
+  }, []);
+
+  if (!isAuthenticated) {
+    // User is not authenticated, handle accordingly
+    return (
+      <>
+        
+      </>
+    );
+  }
+
+  const userEmail = user.email;
+
+  // Check if userEmail exists in the rescueEmails array
+  const isUserInRescueEmails = rescueEmails.includes(userEmail);
 
   return (
+    <>
+    
     <div>
-        <h1 className='font-bold text-3xl text-blue-950 m-3 mt-5 font-serif mb-0'>HELP OTHERS</h1>
-        <h2 className='font-bold m-3 font-serif text-2xl lg:text-3xl text-blue-900 mt-4 mb-10'>Register Your <span className='text-orange-500'>Amazing Team Here</span> </h2>
-        <div className='grid text-blue-900 grid-cols-1 md-cols-2 lg:grid-cols-4 gap-3 p-2 text-center'>
-            <NavLink to="/hospital-registration" className='px-5 py-4 font-extrabold shadow-lg  rounded-lg'>
-                <img src="image/hospital.png" className=' h-[90%] ' alt="" />
-                <p className=' text-2xl'>HOSPITAL TEAM</p>
-            </NavLink>
-            <NavLink to="/rescue-team-data" className='font-extrabold shadow-lg '>
-                <img src="image/rescueTeam.png" className='px-5 py-4 sm:mt-5 md:mt-10 h-[80%]' alt="" />
-                <p className=' text-2xl'>RESCUE TEAM</p>
-            </NavLink>
-            <NavLink to="/ngo-registration" className='px-5 py-4  shadow-lg font-extrabold '>
-                <img src="image/ngo-registration1.jpg" className=' sm:mt-5 md:mt-10 h-[80%]' alt="" />
-                <p className='text-xl'>NGO</p>
-            </NavLink>
-            <NavLink to="/" className='px-5 py-4  font-extrabold shadow-lg rounded-lg'>
-                <img src="image/help1.png" className=' sm:mt-5 md:mt-10 h-[80%]' alt="" />
-                <p className=' text-2xl'>HELP</p>
-            </NavLink>
-            
-            
+      <h1>{userEmail}</h1>
+      <div>
+        {isUserInRescueEmails ? (
+          <div>
+            <NavLink to="/alert-form">Click to fill Alert Data</NavLink>
+          </div>
+        ) : (
+          <p>You do not have access to the alert form.</p>
+        )}
+      </div>
 
-        </div>
-    </div>
-  )
-}
 
-export default Register
+    </div>    
+    
+    
+    </>
+
+  );
+};
+
+export default Register;

@@ -13,7 +13,7 @@ const OthersRegistration = () => {
           <img src="image/hospital.png" className=' h-[90%] ' alt="" />
           <p className=' text-2xl'>HOSPITAL TEAM</p>
         </NavLink>
-        <NavLink to="/rescue-team-data" className='font-extrabold shadow-lg '>
+        <NavLink to="/rescue" className='font-extrabold shadow-lg '>
           <img src="image/rescueTeam.png" className='px-5 py-4 sm:mt-5 md:mt-10 h-[80%]' alt="" />
           <p className=' text-2xl'>RESCUE TEAM</p>
         </NavLink>

@@ -42,14 +42,18 @@ const Register = () => {
     <>
     
     <div>
-      <h1>{userEmail}</h1>
+      
       <div>
         {isUserInRescueEmails ? (
-          <div>
-            <NavLink to="/alert-form">Click to fill Alert Data</NavLink>
+            
+          <div className='text-center font-bold font-serif py-5 bg-red-500 mx-10 rounded-lg mt-5'>
+            <h1>You Can Add Alerts Only If </h1>
+            <NavLink to="/alert-form-01023" className="text-2xl w-[90%] rounded-lg ">
+                Add Alert
+            </NavLink>
           </div>
         ) : (
-          <p>You do not have access to the alert form.</p>
+          ""
         )}
       </div>
 

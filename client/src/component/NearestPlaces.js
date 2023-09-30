@@ -37,8 +37,7 @@ function NearestPlaces() {
   return (
     <div className="bg-gray-100 min-h-screen p-4">
 
-      {/* <NearestLocationForm fetchNearestPlace={fetchNearestPlaces} /> */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
         {nearestPlaces && nearestPlaces.length > 0 ? (
           nearestPlaces.map((place) => (
             <div
@@ -63,7 +62,7 @@ function NearestPlaces() {
           ))
         ) : (
           <p className="text-xl font-semibold text-gray-600">
-            No nearest places found.
+            
           </p>
         )}
       </div>

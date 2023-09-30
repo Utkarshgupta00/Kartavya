@@ -82,6 +82,8 @@ const RescueTeamRegistration = () => {
               longitude: longitude,
               location: data.city,
               address: data.address,
+              
+
             });
           }
         } catch (error) {
@@ -183,6 +185,8 @@ const RescueTeamRegistration = () => {
             />
 
           </div>
+
+
 
           <div className="mb-10 mt-10 justify-center text-center">
             <button

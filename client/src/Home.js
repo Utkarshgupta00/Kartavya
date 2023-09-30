@@ -7,6 +7,7 @@ import Contact from './component/Contact/Contact'
 import Register from './component/Register/Register'
 import RecentSituation from './Emergency/RecentSituation'
 import Swipe from './component/Swipe'
+import OthersRegistration from './component/Register/OthersRegistration'
 
 
 
@@ -121,7 +122,7 @@ useEffect(() => {
 
     <div className=' p-2 md:px-[100px]'>
       <Contact/>
-      <Register/>
+      <OthersRegistration/>
     </div>
 
 

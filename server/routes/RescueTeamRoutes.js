@@ -26,6 +26,20 @@ router.get("/rescue-team-emails", async (req, res) => {
   }
 });
 
+router.get("/rescue-team-credential", async (req, res) => {
+  try {
+    // Use the find() method to retrieve all rescue team data and project only the email field
+    const data = await RescueTeamData.find({}, { credentail_id: 1, _id: 0 });
+
+    // Extract the email field from the result and create an array of emails
+    const credential = data.map(item => item.credentail_id);
+
+    res.status(200).json(credential);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 
 
 
@@ -53,6 +67,7 @@ router.post("/", async (req, res) => {
       latitude: req.body.latitude,
       longitude: req.body.longitude,
       address: req.body.address,
+     
     });
 
     const savedData = await newData.save();

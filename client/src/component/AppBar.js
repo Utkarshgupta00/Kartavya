@@ -12,6 +12,24 @@ const AppBar = (props) => {
                 KARTAVYA
                 </NavLink>
 
+    <div className='grid grid-cols-5 text-center justify-center w-[50%] text-black py-2 z-50 hidden font-bold   lg:grid text-cyan-20  '>
+      <NavLink to="/">
+        <p className='text-[10px]'>HOME</p>
+      </NavLink>
+      <NavLink to="/hospital-cards">
+        <p className=' text-[10px]'>HOSPITAL</p>
+      </NavLink>
+      <NavLink to="/create-registration">
+        <p className=' text-[10px]'>Create</p>
+      </NavLink>
+      <NavLink to="/rescue-cards">
+        <p className=' text-[10px]'>RESCUE</p>
+      </NavLink>
+      <NavLink to="/help">
+        <p className=' text-[10px]'>HELP</p>
+      </NavLink>
+    </div>
+
 
                 { 
 

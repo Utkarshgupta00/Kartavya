@@ -24,7 +24,7 @@ const RescueTeamSchema = new mongoose.Schema({
   },
   credentail_id : {
     type : String,
-    default : "abcdef321",
+    default : "abcde",
 },
 
 });

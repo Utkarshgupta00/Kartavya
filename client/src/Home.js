@@ -8,6 +8,8 @@ import Register from './component/Register/Register'
 import RecentSituation from './Emergency/RecentSituation'
 import Swipe from './component/Swipe'
 import OthersRegistration from './component/Register/OthersRegistration'
+import userEmail from './component/Register/userEmail';
+import NewsletterSignup from './component/Register/userEmail'
 
 
 
@@ -50,6 +52,9 @@ useEffect(() => {
   .then((data) => setRescueTeamCount(data.count))
   .catch((error) => console.error('Error fetching rescue team count:', error));
 }, []);
+
+
+
 
 
 
@@ -109,24 +114,17 @@ useEffect(() => {
         
        
     </div>
-    {/* <div className='py-5 p-2 md:px-[100px]'>
-      <NavLink to='/ngo-registration'>
-          <h1 className=' w-[100%] p-5 font-bold text-xl bg-blue-500 text-white rounded-lg'>
-          <span>Help Needy Here</span>
-          <i className='zmdi zmdi-chevron-right ml-10 font-bold animate-bounce'></i> 
-        </h1>  
-      </NavLink>
-  
-         
-    </div> */}
 
     <div className=' p-2 md:px-[100px]'>
       <Contact/>
+      <div className='h-10'></div>
+      <NewsletterSignup/>
+      <div className='h-10'></div>
       <OthersRegistration/>
     </div>
 
 
-    <div className='h-[480px]'>
+    <div className='h-[50px]'>
     <Swiper/> 
     </div>
 

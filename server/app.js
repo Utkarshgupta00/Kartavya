@@ -9,6 +9,7 @@ const AlertRoutes = require('./routes/AlertRoute')
 const locationRouter = require('./routes/locationRoutes')
 const hospitalnearestplace  = require('./routes/HospitalNearestPlaceRoutes')
 const rescuenearestplace = require('./routes/NearestPlaceRoutes');
+const userRoute = require('./routes/UserRoute')
 
 const port = process.env.PORT || 3001;
 
@@ -27,6 +28,8 @@ app.use('/recent-alerts',AlertRoutes)
 app.use('/getLocation',locationRouter)
 app.use('/findNearestHospitalPlace',hospitalnearestplace)
 app.use('/findNearestPlace',rescuenearestplace)
+app.use('/user-subscription',userRoute)
+
 
 app.listen(port,()=>{
     console.log(`server connected at port : ${port}`);

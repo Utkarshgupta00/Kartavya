@@ -4,8 +4,28 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const Register = () => {
   const [rescueEmails, setRescueEmails] = useState([]);
+
   const { user, isAuthenticated } = useAuth0();
 
+//changed from here
+  const [numbers, setNumbers] = useState([]);
+  useEffect(() => {
+    // Fetch rescue team emails from your backend API
+    fetch('http://localhost:3001/rescue-team-data/rescue-team-number')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setNumbers(data);
+        console.log('Rescue Emails:', data);
+      })
+      .catch((error) => {
+        console.error('Error fetching rescue team emails:', error);
+      });
+  }, []);
 
   useEffect(() => {
     // Fetch rescue team emails from your backend API

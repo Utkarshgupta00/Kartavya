@@ -21,10 +21,7 @@ const OthersRegistration = () => {
           <img src="image/ngo-registration1.jpg" className=' sm:mt-5 md:mt-10 h-[80%]' alt="" />
           <p className='text-xl'>NGO</p>
         </NavLink>
-        <NavLink to="/" className='px-5 py-4  font-extrabold shadow-lg rounded-lg'>
-          <img src="image/help1.png" className=' sm:mt-5 md:mt-10 h-[80%]' alt="" />
-          <p className=' text-2xl'>HELP</p>
-        </NavLink>
+
       </div>
     </div>
   )

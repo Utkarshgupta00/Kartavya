@@ -26,6 +26,20 @@ router.get("/rescue-team-emails", async (req, res) => {
   }
 });
 
+router.get("/rescue-team-number", async (req, res) => {
+  try {
+    // Use the find() method to retrieve all rescue team data and project only the email field
+    const data = await RescueTeamData.find({}, {RescueTeamphoneNumber: 1, _id: 0 });
+
+    // Extract the email field from the result and create an array of emails
+    const numbers = data.map(item => item.RescueTeamphoneNumber);
+
+    res.status(200).json(numbers);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 router.get("/rescue-team-credential", async (req, res) => {
   try {
     // Use the find() method to retrieve all rescue team data and project only the email field

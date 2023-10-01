@@ -5,7 +5,7 @@ const nodemailer = require("nodemailer");
 const twilio = require("twilio");
 
 const accountSid = "AC6ca673fc910f1389f25485ed6d946586";
-const authToken = "7391ba0de67cbeff0a3d6dcb2c7ee8c9 ";
+const authToken = "e81497cd4f5b6098ff449c7404e5a67d ";
 const client = new twilio(accountSid, authToken);
 
 router.get("/", async (req, res) => {
@@ -54,8 +54,8 @@ const transporter = nodemailer.createTransport({
   host: "sandbox.smtp.mailtrap.io",
   port: 2525,
   auth: {
-    user: "af60b30b5f45a5",
-    pass: "60e082cddcbfe9",
+    user: "b08904414095f8",
+    pass: "c21dd66acecb45",
   },
 });
 
@@ -91,6 +91,7 @@ router.post("/sendEmail", async (req, res) => {
 router.post("/sendSMS", async (req, res) => {
   const phoneNumber = await HospitalData.find().distinct("phoneNumber");
   const { subject, text } = req.body;
+  console.log(phoneNumber);
   try {
     for (const number of phoneNumber) {
       await client.messages.create({

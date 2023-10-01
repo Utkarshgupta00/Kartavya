@@ -1,6 +1,8 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RescueTeamRegistration = () => {
+  const navigate = useNavigate(); // Initialize useNavigate hook
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -9,11 +11,7 @@ const RescueTeamRegistration = () => {
     latitude: "",
     longitude: "",
     address: "",
-    
   });
-
-
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,9 +21,12 @@ const RescueTeamRegistration = () => {
     });
   };
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setIsLoading(true); // Show loading spinner
     try {
       const response = await fetch("http://localhost:3001/rescue-team-data", {
         method: "POST",
@@ -38,12 +39,26 @@ const RescueTeamRegistration = () => {
       if (response.status === 201) {
         const data = await response.json();
         console.log("Form data submitted successfully:", data);
-        e.clear();
+
+        setTimeout(() => {
+          setIsLoading(false); // Hide loading spinner
+          setShowAlert(true); // Show alert after 2 seconds
+          setFormData({
+            name: "",
+            email: "",
+            phoneNumber: "",
+            location: "",
+            latitude: "",
+            longitude: "",
+            address: "",
+          });
+        }, 1000);
         // You can also reset the form or redirect the user to a success page here
       } else {
         console.error("Form submission failed:", response);
         // Handle other possible response codes (e.g., server error)
         // You can display an error message to the user or take appropriate action
+        setIsLoading(false);
       }
     } catch (error) {
       console.error("An error occurred during form submission:", error);
@@ -54,10 +69,14 @@ const RescueTeamRegistration = () => {
     console.log(formData);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     getLocation();
+  }, []);
 
- },[])
+  const handleAlertClose = () => {
+    setShowAlert(false); // Close the alert
+    navigate("/");
+  };
 
   const getLocation = () => {
     if ("geolocation" in navigator) {
@@ -82,8 +101,6 @@ const RescueTeamRegistration = () => {
               longitude: longitude,
               location: data.city,
               address: data.address,
-              
-
             });
           }
         } catch (error) {
@@ -183,18 +200,36 @@ const RescueTeamRegistration = () => {
               className="w-full px-4 py-2 rounded-lg border focus:outline-none focus:border-blue-500"
               required
             />
-
           </div>
 
-
-
           <div className="mb-10 mt-10 justify-center text-center">
-            <button
-              type="submit"
-              className="mb-10 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
-            >
-              Register
-            </button>
+            {/* Show the loading spinner while isLoading is true */}
+            {isLoading ? (
+              <div className="text-center">
+                <div className="spinner-border text-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            ) : (
+              // Show the submit button when isLoading is false
+              <button
+                type="submit"
+                className="mb-10 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
+              >
+                Submit Data
+              </button>
+            )}
+            {showAlert && (
+              <div className="bg-green-200 text-green-800 p-4 rounded-lg shadow-md mt-4">
+                Data saved successfully!
+                <button
+                  className="ml-4 bg-green-500 text-white py-1 px-2 rounded-md hover:bg-green-600 transition duration-300"
+                  onClick={handleAlertClose}
+                >
+                  OK
+                </button>
+              </div>
+            )}
           </div>
         </form>
       </div>
